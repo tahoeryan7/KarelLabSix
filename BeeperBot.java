@@ -15,37 +15,40 @@ public class BeeperBot extends Robot
         super(st, av, dir, numBeepers);
     }
     int x=0;
+    
     public void findAndCountBeepers() {
         for(int i=0; (i < 10); i++){
             pickUpBeeper();
         }
     }
     public void pickUpBeeper(){
-        while(!nextToABeeper()){
+        while(frontIsClear()){
+            while(!nextToABeeper()){
             move();
-        }
-        if (nextToABeeper()){
+           }
+            if (nextToABeeper()){
             turnLeft();
-        }
-        while(nextToABeeper()){
+           }
+            while(nextToABeeper()){
             pickBeeper();
             x++;
             move();
-        }
-        turnLeft();
-        turnLeft();
-        while(frontIsClear()){
+           }
+           turnLeft();
+           turnLeft();
+           while(frontIsClear()){
             move();
-        }
-        turnLeft();
+           }
+           turnLeft();
+    }
     }
     public int[] getBeeperList() {
-            //This will be used to print the beepers found.  No need to modify.
-            for(int i, index <arraygerBeeperList.length; index++)
-            
-            
-            return beeperList;
+        int[] BeeperList;
+        BeeperList = new int[x];
+        //This will be used to print the beepers found.  No need to modify.
+            for(int index=0 ; index <BeeperList.length; index++){
+             System.out.print(BeeperList[index]);
+            }
+        return BeeperList; 
     }
-    
 }
-
